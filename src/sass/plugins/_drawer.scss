@@ -1,0 +1,47 @@
+/* -------------------------
+ドロワーメニュー調整
+------------------------- */
+.drawer-hamburger {
+    @include z-index("drawer-btn");
+    display: none;
+    width: 34px;
+    height: $header-height-sp;
+    padding: 0;
+    margin: 0 15px 0 0;
+    right: 0;
+
+    @include mq("sp") {
+        display: block;
+    }
+}
+
+.drawer--right .drawer-nav {
+
+    @include mq("sp") {
+        right: -270px;
+    }
+}
+
+.drawer--right.drawer-open .drawer-hamburger {
+    right: 0;
+}
+
+.drawer-hamburger-icon {
+    background-color: $color-primary;
+    margin-top: 0;
+    
+    &::before {
+        top: -9px;
+        background-color: $color-primary;
+    }
+
+    &::after {
+        top: 9px;
+        background-color: $color-primary;
+    }
+}
+
+.drawer-overlay {
+    @include z-index('drawer-overlay');
+    background-color: transparent;
+}

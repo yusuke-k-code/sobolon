@@ -1,0 +1,98 @@
+/* -------------------------
+BASE（共通）
+------------------------- */
+body {
+    font-size: rem(16);
+    line-height: leading(27, 16);
+    letter-spacing: kerning(0);
+    color: $color-text-black;
+    font-family: $font-family-main;
+}
+
+.main {
+    padding-top: $header-height-pc;
+
+    @include mq('sp') {
+        padding-top: $header-height-sp;
+    }
+}
+
+/* コンテンツインナー幅設定 */
+.inner {
+    max-width: $layout-inner-width;
+    margin: 0 auto;
+    padding: 0 40px; //コンテンツ幅以下になった時の両端の余白
+    box-sizing: content-box; //paddingを含めない
+
+    @include mq('sp') {
+        padding: 0 15px;
+    }
+}
+
+.section {
+    margin-top: $sectionTitle-top-pc;
+
+    @include mq("sp") {
+        margin-top: $sectionTitle-top-sp
+    }
+}
+
+/* セクションタイトル設定 */
+.sectionTitle {
+    font-size: rem(40);
+    font-weight: 600;
+    line-height: 1em;
+    letter-spacing: 0;
+    font-family: $font-family-main;
+    text-align: center;
+    position: relative;
+
+    &::before {
+        content: "";
+        position: absolute;
+        bottom: -16px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60px;
+        height: 1px;
+        background-color: $color-primary;
+    }
+}
+
+/* ボタン中央寄せ */
+.btn-center {
+    text-align: center;
+}
+
+/* ボタンhoverアクション */
+.btn-hover {
+    &:hover {
+        background-color: $color-primary;
+        color: $color-text-white;
+    }
+}
+
+
+/* -------------------------
+補完クラス
+------------------------- */
+/* PCだけ非表示 */
+.hidden-pc {
+    @include mq('pc') {
+        display: none;
+    }
+}
+
+/* タブレットだけ非表示 */
+.hidden-tab {
+    @include mq('tab-only') {
+        display: none;
+    }
+}
+
+/* スマホだけ非表示 */
+.hidden-sp {
+    @include mq('sp') {
+        display: none;
+    }
+}

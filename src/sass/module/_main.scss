@@ -1,0 +1,743 @@
+/* -------------------------
+ファーストビュー｜fv
+------------------------- */
+.fv {
+    position: relative;
+
+    &__img {
+        padding-top: aspect(660, 1200);
+        background: #FFF url(../../../public/assets/img/PC/top.png) no-repeat right top / 82.5%;
+
+        @include mq('tab') {
+            padding-top: aspect(414, 345);
+            background: #FFF url(../../../public/assets/img/SP/top.png) no-repeat center center / cover;
+        }
+    }
+
+    &__container {
+        background-color: $color-bg;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        padding: 82px 42px 92px 0;
+
+        @include mq('tab') {
+            padding: 68px 28px 78px 0;
+        }
+
+        @include mq('tab') {
+            position: static;
+            top: 0;
+            transform: translateX(0);
+            padding: 30px 0 0 0;
+        }
+    }
+
+    &__title {
+        font-size: rem(26);
+        font-weight: 600;
+        line-height: leading(44, 26);
+    }
+
+    &__text {
+        font-weight: 300;
+        margin-top: 12px;
+
+        @include mq('sp') {
+            margin-top: 18px;
+        }
+    }
+}
+
+/* -------------------------
+コンセプト1｜Concept1
+------------------------- */
+.concept1 {
+
+    &__wrapper {
+        margin-top: $sectionTitle-bottom-pc;
+        display: flex;
+        align-items: center;
+
+        @include mq('tab') {
+            margin-top: $sectionTitle-bottom-sp;
+            display: block;
+        }
+    }
+
+    &__img {
+        flex: 0 0 50%; //伸長も縮小もせず大きさ50％指定
+
+        img {
+            object-fit: contain;
+
+            @include mq('tab') {
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+
+    &__container {
+        flex: 0 1 50%; //伸長はしないが50％に足りない場合は縮小
+        margin-left: 6.6667%;
+
+        @include mq('tab') {
+            margin: 32px 0 0 0;
+        }
+    }
+
+    &__title {
+        font-size: rem(20);
+        font-weight: 600;
+        line-height: leading(34, 20);
+    }
+
+    &__text {
+        margin-top: 23px;
+        font-weight: 300;
+
+        @include mq('tab') {
+            margin-top: 19px;
+        }
+    }
+}
+
+/* -------------------------
+特徴｜Feature
+------------------------- */
+.feature {
+
+    &__wrapper {
+        margin-top: $sectionTitle-bottom-pc;
+
+        @include mq('sp') {
+            margin-top: $sectionTitle-bottom-sp;
+        }
+    }
+
+    &__cards {
+        display: flex;
+        justify-content: space-between;
+
+        @include mq('tab') {
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+
+    &__card {
+        flex: 0 0 calc(340 / 1200 * 100%);
+        max-width: 340px;
+        box-shadow: 3px 3px 15px rgba(96, 96, 96, 0.16);
+
+        @include mq('tab') {
+            
+            &:not(:first-child) {
+                margin-top: 48px;
+            }
+        }
+    }
+
+    &__link {
+        display: block;
+        text-decoration: none;
+        color: $color-text-black;
+        
+        &:hover img {
+            transform: scale(1.05);
+        }
+    }
+
+    &__img {
+        overflow: hidden;
+
+        img {
+            object-fit: cover;
+            transition: all .4s ease-out 0s;
+        }
+    }
+
+    &__text {
+        font-weight: 600;
+        text-align: center;
+        padding: 26px 0;
+    }
+}
+
+/* -------------------------
+メッセージ｜Message
+------------------------- */
+.message {
+    background: #FFF url(../../../public/assets/img/PC/bg.png) no-repeat center top / cover;
+    color: $color-text-white;
+    position: relative;
+
+    @include mq('sp') {
+        background: #FFF url(../../../public/assets/img/SP/bg.png) no-repeat top center / cover;
+    }
+    
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, .12);
+        border: 1px solid rgba(112, 112, 112, .12);
+    }
+
+    &__container {
+        position: relative;
+        @include z-index("message-text");
+        padding: 120px 0 124px;
+
+        @include mq('sp') {
+            padding: 176px 0 54px;
+        }
+    }
+
+    &__title {
+        font-size: rem(22);
+        font-weight: 600;
+        line-height: leading(37, 22);
+
+        @include mq('sp') {
+            font-size: rem(20);
+            line-height: leading(34, 20);
+        }
+    }
+
+    &__text {
+        font-weight: 600;
+        margin-top: 26px;
+
+        @include mq('sp') {
+            font-size: rem(14);
+            line-height: leading(24, 14);
+            margin-top: 22px;
+        }
+    }
+}
+
+/* -------------------------
+製品｜Products
+------------------------- */
+.products {
+
+    &__wrapper {
+        margin: $sectionTitle-bottom-pc auto 0;
+        max-width: $products-inner-width;
+
+        @include mq('sp') {
+            margin: $sectionTitle-bottom-sp auto 0;
+        }
+    }
+
+    &__cards {
+        display: flex;
+        justify-content: space-between;
+
+        @include mq('tab') {
+            flex-direction: column;
+            align-items: center;
+            margin: 0 11.5vw;
+        }
+    }
+
+    &__card {
+        flex: 0 0 calc(260 / 940 * 100%);
+        max-width: 340px;
+
+        @include mq('tab') {
+            
+            &:not(:first-child) {
+                margin-top: 44px;
+            }
+        }
+    }
+
+    &__link {
+        display: block;
+        text-decoration: none;
+        color: $color-text-black;
+        
+        &:hover img {
+            transform: scale(1.05);
+        }
+    }
+
+    &__img {
+        overflow: hidden;
+
+        img {
+            width: 100%;
+            height: 100%;
+            transition: all .4s ease-out 0s;
+        }
+    }
+
+    &__text {
+        font-size: rem(14);
+        line-height: leading(24, 14);
+        margin-top: 20px;
+    }
+
+    &__price {
+        font-size: rem(14);
+        line-height: leading(24, 14);
+        color: #989898;
+        margin-top: 10px;
+    }
+
+    &__btn {
+        @include _btn;
+        margin-top: 48px;
+
+        @include mq('tab') {
+            margin-top: 44px;
+        }
+    }
+}
+
+/* -------------------------
+お知らせ｜News
+------------------------- */
+.news {
+
+    &__cards {
+        max-width: $news-inner-width;
+        margin: 44px auto 0;
+
+        @include mq('sp') {
+            margin: 42px 4.5vw 0;
+        }
+    }
+
+    &__card {
+        position: relative;
+        border-bottom: 1px solid rgba(112, 112, 112, .12);
+        padding: 22px 0;
+
+        @include mq('sp') {
+            padding: 22px 0 20px;
+        };
+    }
+
+    &__link {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: $color-text-black;
+
+        @include mq('sp') {
+            flex-direction: column;
+        }
+        
+        &:hover img {
+            transform: scale(1.05);
+        }
+    }
+
+    &__img {
+        flex: 0 0 260px; //画像260pxで固定
+        overflow: hidden;
+
+        @include mq('sp') {
+            flex: 0 0 100%;
+        }
+
+        img {
+            object-fit: cover;
+            transition: all .4s ease-out 0s;
+
+            @include mq('sp') {
+                width: 100vw;
+                height: 100%;
+            }
+        }
+    }
+
+    &__container {
+        flex: 0 1 100%; //100％に満たなければ縮小
+        margin-left: 40px;
+
+        @include mq('sp') {
+            margin-left: 0;
+        }
+    }
+
+    &__date {
+        font-size: rem(14);
+        line-height: leading(24, 14);
+
+        @include mq('sp') {
+            margin-top: 20px;
+        }
+    }
+
+    &__title {
+        font-size: rem(18);
+        font-weight: 600;
+        line-height: leading(31, 18);
+        margin-top: 5px;
+
+        @include mq('sp') {
+            font-size: rem(16);
+            line-height: leading(27, 16);
+        }
+    }
+
+    &__text {
+        font-size: rem(14);
+        line-height: leading(24, 14);
+        color: #888888;
+        margin-top: 12px;
+
+        @include mq('sp') {
+            margin-top: 15px;
+        }
+    }
+
+    &__btn {
+        @include _btn;
+        margin-top: 47px;
+    }
+}
+
+/* -------------------------
+コンセプト2｜Concept2
+------------------------- */
+.concept2 {
+
+    &__wrapper {
+        display: flex;
+        align-items: center;
+        flex-direction: row-reverse;
+        margin-top: 160px;
+
+        @include mq('tab') {
+            display: block;
+            margin-top: 96px;
+        }
+    }
+
+    &__img {
+        flex: 0 0 50%;
+
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    &__container {
+        flex: 0 1 50%;
+        margin-right: 6.6667%;
+
+        @include mq('tab') {
+            margin-right: 0;
+        }
+    }
+
+    &__title {
+        font-size: rem(28);
+        font-weight: 600;
+        line-height: leading(48, 28);
+
+        @include mq('tab') {
+            font-size: rem(20);
+            line-height: leading(34, 20);
+            margin-top: 34px;
+        }
+    }
+
+    &__text {
+        margin-top: 32px;
+
+        @include mq('tab') {
+            font-size: rem(14);
+            line-height: leading(24, 14);
+            margin-top: 20px;
+        }
+    }
+}
+
+/* -------------------------
+問合せ｜Contact
+------------------------- */
+.contact {
+    background: #FFF url(../../../public/assets/img/PC/contact.png) no-repeat center center / cover;
+    margin-top: 225px;
+    padding: 72px 40px 84px;
+
+    @include mq('sp') {
+        margin-top: 90px;
+        padding: 56px 7vw 58px;
+    }
+
+    &__sectionTitle {
+        color: $color-text-primary;
+    }
+
+    &__wrapper {
+        max-width: $contact-inner-width;
+        margin: $sectionTitle-bottom-pc auto 0;
+
+        @include mq('sp') {
+            margin-top: 44px;
+        }
+    }
+
+    &__attention {
+        font-size: rem(14);
+        line-height: leading(24, 14);
+        letter-spacing: 1.4px;
+        text-align: center;
+        
+        span {
+            color: $color-active;
+            letter-spacing: 1.6px;
+        }
+    }
+
+    &__items {
+        margin-top: 18px;
+
+        @include mq('sp') {
+            margin-top: 26px;
+        }
+    }
+
+    &__item {
+        display: flex;
+
+        @include mq('sp') {
+            display: block;
+        }
+
+        &:not(:first-child) {
+            margin-top: 32px;
+        }
+    }
+
+    &__label {
+        display: block;
+        flex: 0 0 172px;
+        height: 40px;
+        background-color: $color-bg-contact;
+        color: $color-text-white;
+        font-size: rem(18);
+        font-weight: 600;
+        line-height: 40px;
+        text-align: center;
+        padding-right: 4px;
+        position: relative;
+        margin-right: 16px;
+
+        @include mq('sp') {
+            display: inline-block;
+            height: 32px;
+            font-size: rem(14);
+            line-height: 32px;
+            padding: 0 26px 0 15px;
+            margin-right: 0;
+            margin-bottom: 4px;
+        }
+
+        span {
+            display: inline-block;
+            position: relative;
+
+            &::before {
+                content: "＊";
+                position: absolute;
+                top: -6px;
+                right: -12px;
+                font-size: rem(12);
+                color: $color-active;
+            }
+        }
+        
+        &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 100%;
+            width: 12px;
+            height: 40px;
+            border-style: solid;
+            border-width: 20px 6px 20px 6px;
+            border-color: transparent transparent transparent $color-bg-contact;
+
+            @include mq('sp') {
+                display: none;
+            }
+        }
+    }
+
+    &__input {
+        flex: 0 1 100%;
+    }
+
+    &__name,
+    &__mail,
+    &__textarea {
+        //デフォルトスタイルの無効化
+        appearance: none;
+        background-color: $color-bg;
+        border: none;
+        border-radius: 2px;
+        box-shadow: 5px 5px 15px rgba(96, 96, 96, 0.16);
+        width: 100%;
+        font-size: rem(14);
+        padding: .2em .5em;
+    }
+
+    &__name,
+    &__mail {
+        height: 40px;
+    }
+
+    &__textarea {
+        //縦方向のみサイズ調整可能
+        resize: vertical;
+        //最小値を設定
+        min-height: 122px;
+    }
+
+    &__radio {
+        display: inline-flex; //flexだと横幅いっぱいになるため
+        position: relative;
+        box-shadow: 5px 5px 15px rgba(96, 96, 96, 0.16);
+        border-radius: 1px;
+
+        &-input {
+            position: absolute;
+            opacity: 0;
+
+            &:nth-of-type(1) {
+                top: 0;
+                left: 0;
+            }
+
+            &:nth-of-type(2) {
+                top: 0;
+                left: 79px;
+            }
+    
+            &:checked + .contact__radio-label {
+                background-color: $color-primary;
+                color: $color-text-white;
+            }
+
+            // フォーカスされたらアウトラインを表示
+            &:focus + .contact__radio-label {
+                outline: -webkit-focus-ring-color auto 1px;
+            }
+        }
+
+        &-label {
+            background-color: $color-bg;
+            color: $color-text-primary;
+            width: 79px;
+            height: 40px;
+            line-height: 38px;
+            letter-spacing: 1.6px;
+            text-align: center;
+            border: 1px solid $color-bg;
+            border-radius: 1px;
+            cursor: pointer;
+        }
+    }
+
+    &__footer {
+        text-align: center;
+        margin-top: 20px;
+
+        @include mq('sp') {
+            margin-top: 16px;
+        }
+
+        &-privacy {
+            position: relative;
+            display: inline-block;
+        }
+
+        &-link {
+            color: $color-text-primary;
+            text-decoration: underline;
+            margin-left: 30px;
+        }
+        
+        &-btn {
+            margin-top: 45px;
+
+            @include mq('sp') {
+                margin-top: 24px;
+            }
+            
+            input {
+                @include _btn;
+                cursor: not-allowed;
+                
+                &.is-active {
+                    background-color: $color-primary;
+                    color: $color-text-white;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+    
+    &__checkbox {
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        
+        &:checked + .contact__agree {
+            border-top-color: transparent;
+            border-left-color: transparent;
+            width: 11px;
+            top: -6px;
+            left: 6px;
+            transform: rotate(45deg);
+        }
+
+        // フォーカスされたらアウトラインを表示
+        &:focus + .contact__agree {
+            outline: -webkit-focus-ring-color auto 1px;
+        }
+
+        // フォーカス後にクリックした際のアウトラインを非表示
+        &:focus:checked + .contact__agree {
+            outline: none;
+        }
+    }
+
+    &__agree {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        margin: auto 0;
+        width: 22px;
+        height: 22px;
+        border: 1px solid $color-primary;
+        cursor: pointer;
+        transition: all .3s ease 0s;
+    }
+    
+    &__message {
+        text-align: center;
+        font-weight: 600;
+        display: none;
+
+        &.error {
+            color: red;
+        }
+    }
+}

@@ -1,0 +1,112 @@
+/* -------------------------
+ヘッダー
+------------------------- */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: $color-bg-header;
+    width: 100vw;
+    height: $header-height-pc;
+    @include z-index('header');
+
+    @include mq('sp') {
+        height: $header-height-sp;
+    }
+
+    &__inner {
+        display: flex;
+    }
+
+    &__logo {
+        width: 120px;
+
+        &-link {
+            display: block;
+            line-height: $header-height-pc;
+            transition: all .4s ease 0s;
+
+            @include mq('sp') {
+                line-height: $header-height-sp;                
+            }
+
+            &:hover {
+                opacity: .7;
+            }
+            
+            img {
+                vertical-align: baseline;
+            }
+        }
+    }
+    
+    /* ナビゲーション */
+    &__nav {
+        margin-left: auto;
+
+        @include mq('sp') {
+            @include z-index('drawer-menu');
+            background-color: $color-bg-drawer;
+            width: 270px;
+            top: $header-height-sp;
+        }
+
+        &-lists {
+            
+            @include mq('sp') {
+                text-align: right;
+                padding: 30px 13px 30px 160px;
+            }
+        }
+    
+        &-list {
+            display: inline-block;
+
+            @include mq('sp') {
+                display: block;
+                padding: 10px 0;
+            }
+
+            &:not(:first-child) {
+                margin-left: 46px;
+
+                @include mq('tab') {
+                    margin-left: 32px;
+                }
+
+                @include mq('sp') {
+                    margin-left: 0;
+                    margin-top: 8px;
+                }
+            }
+        }
+    
+        &-link {
+            display: block;
+            color: $color-text-black;
+            line-height: $header-height-pc;
+            letter-spacing: 1.6px;
+            text-decoration: none;
+            transition: all .4s ease 0s;
+    
+            @include mq('sp') {
+                color: $color-text-white;
+                padding: 0;
+                font-size: rem(18);
+                font-weight: 600;
+                letter-spacing: 1.8px;
+                line-height: leading(31, 18);
+            }
+
+            &:hover {
+                color: $color-text-primary;
+
+                @include mq('sp') {
+                    color: $color-text-white;
+                    text-decoration: none;
+                    opacity: .7;
+                }
+            }
+        }
+    }
+}

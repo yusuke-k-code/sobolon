@@ -1,0 +1,52 @@
+// ベース色
+$color-main: #333333;
+$color-primary: #3EA1D1;
+$color-active: #E7728E;
+
+// 背景色
+$color-bg: #FFF;
+$color-bg-header: #FFF;
+$color-bg-footer: #F7F7F7;
+$color-bg-drawer: #3EA1D1;
+$color-bg-contact: #3EA1D1B3;
+
+// テキスト色
+$color-text-black: #333333;
+$color-text-white: #FFF;
+$color-text-primary: #3EA1D1;
+
+// レイアウト幅
+$layout-inner-width: 1200px;
+$products-inner-width: 940px;
+$news-inner-width: 1040px;
+$contact-inner-width: 510px;
+
+// ヘッダー高さ
+$header-height-pc: 70px;
+$header-height-sp: 60px;
+
+// セクションタイトル上部の離れ
+$sectionTitle-top-pc: 156px;
+$sectionTitle-top-sp: 92px;
+// セクションタイトルとコンテンツの離れ
+$sectionTitle-bottom-pc: 76px;
+$sectionTitle-bottom-sp: 62px;
+
+// ブレークポイント
+$breakpoints: (
+    sp: 'screen and (max-width: 767px)',
+    tab-only: '(min-width: 768px) and (max-width: #{$layout-inner-width - 1px})',
+    tab: 'screen and (max-width: #{$layout-inner-width - 1px})',
+    pc: 'screen and (min-width: #{$layout-inner-width})',
+);
+
+// 階層
+$layer: (
+    drawer-btn: 40, //ドロワーボタン
+    drawer-menu: 30, //ドロワーメニュー
+    header: 20, // ヘッダー
+    drawer-overlay: 15, //ドロワーメニュー背景のオーバーレイ
+    footer: 10, // フッター
+    message-text: 5, //メッセージのテキスト（オーバーレイ上部にする）
+    default: 1,
+);
